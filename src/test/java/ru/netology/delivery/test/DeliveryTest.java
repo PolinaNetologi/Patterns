@@ -4,17 +4,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import ru.netology.delivery.data.DataGenerator;
+import ru.netology.delivery.DataGenerator;
+
 
 import java.time.Duration;
-import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static ru.netology.delivery.data.DataGenerator.generateCity;
+import static ru.netology.delivery.DataGenerator.generateCity();
+
+
 
 class DeliveryTest {
 
