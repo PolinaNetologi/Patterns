@@ -1,5 +1,3 @@
-package ru.netology.delivery.data;
-
 import com.github.javafaker.Faker;
 import lombok.Value;
 
@@ -16,12 +14,12 @@ public class DataGenerator {
         return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
-    public static String generateCity(String locale) {
+    public static String generateCity() {
         var cities = new String[] {"Москва", "Ставрополь", "Тверь", "Владивосток"};
         return cities [new Random().nextInt(cities.length)];
     }
 
-    public static String generateName(String locale) { // Класс Java java.util.Locale позволяет учесть особенности региональных представлений алфавита, символов, чисел и дат.
+    public static String generateName(String locale) {
         var faker = new Faker (new Locale(locale));
         return faker.name().lastName() + " " + faker.name().firstName();
     }
@@ -38,7 +36,7 @@ public class DataGenerator {
         }
 
         public static UserInfo generateUser(String locale) {
-            return new UserInfo (generateCity(locale), generateName(locale), generatePhone(locale));
+            return new UserInfo (generateCity(), generateName(locale), generatePhone(locale));
         }
     }
 
