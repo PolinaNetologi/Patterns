@@ -30,7 +30,7 @@ class DeliveryTest {
         String firstMeetingDate = DataGenerator.generateDate(daysToAddForFirstMeeting);
         int daysToAddForSecondMeeting = 7;
         String secondMeetingDate = DataGenerator.generateDate(daysToAddForSecondMeeting);
-        $("[data-test-id = city] input").setValue(DataGenerator.generateCity());
+        $("[data-test-id = city] input").setValue(DataGenerator.generateCity("ru"));
         $("[data-test-id = date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME, Keys.DELETE));
         $("[data-test-id = date] input").setValue(firstMeetingDate);
         $("[data-test-id = name] input").setValue(DataGenerator.generateName("ru"));

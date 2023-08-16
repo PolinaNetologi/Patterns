@@ -1,4 +1,5 @@
 package ru.netology.delivery.data;
+
 import com.github.javafaker.Faker;
 import lombok.Value;
 
@@ -9,44 +10,42 @@ import java.util.Random;
 
 public class DataGenerator {
     private DataGenerator() {
-
     }
+
     public static String generateDate(int shift) {
         return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
-    public static String generateCity() {
-        var cities = new String[]{"Майкоп", "Уфа", "Казань", "Самара"};
-        return cities[new Random().nextInt(cities.length)];
+
+    public static String generateCity(String locale) {
+        var cities = new String[] {"Москва", "Ставрополь", "Тверь", "Владивосток"};
+        return cities [new Random().nextInt(cities.length)];
     }
-    public static String generateName(String locale) {
-        var faker = new  Faker(new Locale (locale));
+
+    public static String generateName(String locale) { // Класс Java java.util.Locale позволяет учесть особенности региональных представлений алфавита, символов, чисел и дат.
+        var faker = new Faker (new Locale(locale));
         return faker.name().lastName() + " " + faker.name().firstName();
-
     }
-
-
 
     public static String generatePhone(String locale) {
-        var faker = new Faker(new Locale(locale));
+        var faker = new Faker (new Locale (locale));
+
         return faker.phoneNumber().phoneNumber();
     }
+
+
     public static class Registration {
         private Registration() {
-
-
         }
 
         public static UserInfo generateUser(String locale) {
-            return new UserInfo(generateCity(), generateName(locale), generatePhone(locale));
+            return new UserInfo (generateCity(locale), generateName(locale), generatePhone(locale));
         }
     }
 
-
-        @Value
-        public static class UserInfo {
-            String city;
-            String name;
-            String phone;
-        }
+    @Value
+    public static class UserInfo {
+        String city;
+        String name;
+        String phone;
     }
-
+}
