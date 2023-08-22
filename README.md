@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/n31bnaorq8mwd0le?svg=true)](https://ci.appveyor.com/project/PolinaNetologi/patterns-dqwy6)
